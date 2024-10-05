@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Employees</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Employees</h2>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">FullName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone No</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Date Of Birth</th>
+        <th scope="col">Marital Status</th>
+        <th scope="col">Education</th>
+        <th scope="col">Residence Address</th>
+        <th scope="col">Present Address</th>
+        <th scope="col">State</th>
+        <th scope="col">City</th>
+        <th scope="col">Country</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for emp in employees %}
+        <tr>
+            <td>{{ emp.full_name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.phone_no }}</td>
+            <td>{{ emp.age }}</td>
+            <td>{{ emp.gender }}</td>
+            <td>{{ emp.Date_of_birth }}</td>
+            <td>{{ emp.marital_status }}</td>
+            <td>{{ emp.education }}</td>
+            <td>{{ emp.residence_address }}</td>
+            <td>{{ emp.present_address }}</td>
+            <td>{{ emp.state }}</td>
+            <td>{{ emp.city }}</td>
+            <td>{{ emp.country }}</td>
+            <td>
+                <button type="button"
+                onclick="location.href='{% url 'export_excel' emp.id %}'"
+                class="btn btn-primary">XLSX</i></button>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
